@@ -3,10 +3,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+       flatDir {
+            dirs './'
+        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0-alpha02'
+        classpath 'com.android.tools.build:gradle:7.2.1'
     }
 }
 
@@ -14,13 +17,10 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
 
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
     }
     lintOptions {
         abortOnError false
@@ -31,11 +31,15 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs './'
+        }
     }
 }
 
 dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.facebook.react:react-native:0.20.1'
-    implementation(name: 'mdslib', version: '+', ext: 'aar')
+    implementation(name: 'mdslib', version: '1.68.0(1)-release', ext: 'aar')
     implementation "com.polidea.rxandroidble2:rxandroidble:1.11.1"
 }
