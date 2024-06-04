@@ -133,12 +133,12 @@ MDS.del(serial, resource, contract,
   (error) => { this.onError(error) });
 
 // Subscribe to a resource
-var key = MDS.subscribe(serial, resource, contract,
+var subscriptionId = MDS.subscribe(serial, resource, contract,
   (notification) => { this.onResponse(notification) },
   (error) => { this.onError(error) }));
 
 // Unsubscribe from a subsciption
-MDS.unsubscribe(key);
+MDS.unsubscribe(subscriptionId);
 ```
 
 ## Example

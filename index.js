@@ -35,8 +35,8 @@ function MDS() {
 		return MDSImpl.post(serial, uri, contract, onResponse, onError)
 	}
 
-	this.delete = function(serial, uri, contract, onResponse, onError) {
-		return MDSImpl.delete(serial, uri, contract, onResponse, onError)
+	this.del = function(serial, uri, contract, onResponse, onError) {
+		return MDSImpl.del(serial, uri, contract, onResponse, onError)
 	}
 
 	this.subscribe = function(serial, uri, contract, onResponse, onError) {

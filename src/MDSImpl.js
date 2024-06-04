@@ -74,15 +74,15 @@ function MDSImpl() {
 		}
 	}
 
-	this.handleNewScannedDevice = function(e: Event) {
+	this.handleNewScannedDevice = function(e) {
 		self.onNewScannedDevice(e.name, e.address);
 	}
 
-	this.handleNewNotification = function(e: Event) {
+	this.handleNewNotification = function(e) {
 		self.subsSuccessCbs[getIdxFromKey(e.key)](e.notification);
 	}
 
-	this.handleNewNotificationError = function(e: Event) {
+	this.handleNewNotificationError = function(e) {
 		self.subsErrorCbs[getIdxFromKey(e.key)](e.error);
 	}
 
@@ -168,21 +168,21 @@ function MDSImpl() {
         }
 	}
 
-	this.delete = function(serial, uri, contract, responseCb, errorCb) {
+	this.del = function(serial, uri, contract, responseCb, errorCb) {
 		if (serial == undefined ||
             uri == undefined ||
             contract == undefined ||
             responseCb == undefined ||
             errorCb == undefined) {
-			console.log("MDS delete() missing argument(s).")
+			console.log("MDS del() missing argument(s).")
 			return false;
 		}
 
 		if (Platform.OS === 'android'){
-          ReactMds.delete(URI_PREFIX + serial + uri, JSON.stringify(contract), responseCb, errorCb);
+          ReactMds.del(URI_PREFIX + serial + uri, JSON.stringify(contract), responseCb, errorCb);
         }
         else {
-          ReactMds.delete(URI_PREFIX + serial + uri, contract, responseCb, errorCb);
+          ReactMds.del(URI_PREFIX + serial + uri, contract, responseCb, errorCb);
         }
 	}
 

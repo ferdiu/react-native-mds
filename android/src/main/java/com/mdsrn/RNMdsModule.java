@@ -138,7 +138,7 @@ public class RNMdsModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void delete(@NonNull String uri, String contract, final Callback responseCb, final Callback errorCb) {
+    public void del(@NonNull String uri, String contract, final Callback responseCb, final Callback errorCb) {
         mds.delete(uri, contract, new MdsResponseListener() {
             @Override
             public void onSuccess(String s) {
